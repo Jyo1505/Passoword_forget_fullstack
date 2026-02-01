@@ -54,10 +54,14 @@ const app = express();
 
 // CORS first
 app.use(cors({
-  origin: "https://password-forget-fullstack.vercel.app",
+  origin: [
+    "https://password-forget-fullstack.vercel.app",
+    "https://passoword-forget-fullstack.onrender.com"
+  ],
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"]
 }));
+
 
 app.use(express.json());
 
