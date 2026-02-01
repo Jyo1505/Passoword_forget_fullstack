@@ -44,7 +44,6 @@
 // });
 
 
-
 require("dotenv").config();
 
 const express = require("express");
@@ -54,23 +53,34 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-// middleware
-app.use(express.json());
+/* =========================
+   MIDDLEWARE (ORDER MATTERS)
+========================= */
 app.use(cors({
-  origin: "*"
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// routes
+app.use(express.json());
+
+// 👇 THIS IS THE KEY FIX (preflight support)
+app.options("*", cors());
+
+/* =========================
+   ROUTES
+========================= */
 app.use("/api", authRoutes);
 
-// health check (VERY IMPORTANT)
+// health check
 app.get("/", (req, res) => {
   res.send("Backend running");
 });
 
-// port
+/* =========================
+   SERVER
+========================= */
 const PORT = process.env.PORT || 2000;
-
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
