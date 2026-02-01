@@ -65,7 +65,7 @@ app.use(cors({
 app.use(express.json());
 
 // 👇 THIS IS THE KEY FIX (preflight support)
-app.options("*", cors());
+// app.options("*", cors());
 
 /* =========================
    ROUTES
