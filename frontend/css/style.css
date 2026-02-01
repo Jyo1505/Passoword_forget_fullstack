@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* =====================
+   CARD CONTAINER
+===================== */
+.container {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  padding: 36px 32px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  animation: fadeIn 0.6s ease;
+}
+
+/* =====================
+   HEADINGS
+===================== */
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #222;
+}
+
+/* =====================
+   INPUTS
+===================== */
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* =====================
+   BUTTONS
+===================== */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* =====================
+   LINKS
+===================== */
+.link {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+/* =====================
+   MESSAGES
+===================== */
+#regMsg,
+#loginMsg,
+#forgotMsg,
+#resetMsg {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #d9534f;
+}
+
+/* Success messages (optional) */
+.success {
+  color: #28a745;
+}
+
+/* =====================
+   ANIMATION
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   MOBILE OPTIMIZATION
+===================== */
+@media (max-width: 480px) {
+  .container {
+    padding: 28px 22px;
+    border-radius: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* =====================
+   LARGE SCREENS
+===================== */
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 26px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 17px;
+  }
+}
+
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.hint {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.note {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Info card */
+.info-box {
+  background: #f7f8ff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.info-box h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.info-box p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.info-box ul {
+  padding-left: 18px;
+}
+
+.info-box li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  flex: 1;
+}
+
+/* Secondary button */
+button.secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+button.secondary:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+#generatedPasswordText {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #2e7d32;
+  word-break: break-all;
+}
+
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 48px; /* more space for touch */
+}
+
+.password-wrapper .toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 5;                 /* 🔥 critical */
+  padding: 8px;               /* 🔥 larger tap area */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================
+   DESKTOP / LARGE SCREENS
+===================== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 560px;
+    padding: 48px 44px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+}
+
+
+.password-wrapper input::-ms-reveal,
+.password-wrapper input::-ms-clear {
+  display: none;
+}

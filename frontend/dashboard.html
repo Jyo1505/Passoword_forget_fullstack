@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <h2>Dashboard 🎉</h2>
+    <p class="subtitle">
+      You are successfully logged in
+    </p>
+
+    <!-- INFO CARD -->
+    <div class="info-box">
+      <h3>Account Overview</h3>
+      <p>
+        Welcome to your account dashboard. From here, you can manage your
+        authentication details securely.
+      </p>
+
+      <ul>
+        <li>✔ Secure email-based login</li>
+        <li>✔ Password reset (once per day)</li>
+        <li>✔ Password rules enforced</li>
+      </ul>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      <!-- <button onclick="goToForgot()">Reset Password</button> -->
+      <button class="secondary" onclick="logout()">Logout</button>
+    </div>
+
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "/";
+    }
+
+    // function goToForgot() {
+    //   window.location.href = "/";
+    // }
+  </script>
+</body>
+</html>
