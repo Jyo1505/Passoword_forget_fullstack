@@ -1,4 +1,4 @@
-const API_BASE = "https://passoword-forget-fullstack.onrender.com/";
+const API_BASE = "https://passoword-forget-fullstack.onrender.com";
 
 function resetPassword() {
   const newPassword = document.getElementById("newPassword").value;
