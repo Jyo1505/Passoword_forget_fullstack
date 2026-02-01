@@ -10,6 +10,18 @@ const app = express();
 
 // Middleware
 app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "https://password-forget-fullstack.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.options("*", cors());
+
 app.use(express.json());
 
 // Serve frontend folder
