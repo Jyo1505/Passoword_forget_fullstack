@@ -43,7 +43,6 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
-
 require("dotenv").config();
 
 const express = require("express");
@@ -53,23 +52,16 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-/* =========================
-   MIDDLEWARE (ORDER MATTERS)
-========================= */
+// CORS first
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "https://password-forget-fullstack.vercel.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
 }));
 
 app.use(express.json());
 
-// 👇 THIS IS THE KEY FIX (preflight support)
-// app.options("*", cors());
-
-/* =========================
-   ROUTES
-========================= */
+// routes
 app.use("/api", authRoutes);
 
 // health check
@@ -77,9 +69,6 @@ app.get("/", (req, res) => {
   res.send("Backend running");
 });
 
-/* =========================
-   SERVER
-========================= */
 const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
