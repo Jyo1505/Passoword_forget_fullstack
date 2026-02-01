@@ -167,9 +167,17 @@ function togglePassword(inputId, icon) {
 
   if (input.type === "password") {
     input.type = "text";
-    icon.textContent = "🙈";
+    icon.textContent = "🚫";
   } else {
     input.type = "password";
     icon.textContent = "👁";
   }
+}
+
+// 🔁 Auto-open correct form based on URL
+const params = new URLSearchParams(window.location.search);
+const view = params.get("view");
+
+if (view === "login") {
+  showLogin();
 }

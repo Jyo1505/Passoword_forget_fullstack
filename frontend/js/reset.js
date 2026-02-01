@@ -26,7 +26,7 @@ function resetPassword() {
       if (data.success) {
         localStorage.removeItem("resetEmail");
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/?view=login";
         }, 1200);
       }
     });
@@ -57,7 +57,7 @@ function togglePassword(inputId, icon) {
 
   if (input.type === "password") {
     input.type = "text";
-    icon.innerText = "🙈";
+    icon.innerText = "🚫";
   } else {
     input.type = "password";
     icon.innerText = "👁";
