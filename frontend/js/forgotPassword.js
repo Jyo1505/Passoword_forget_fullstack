@@ -1,6 +1,7 @@
-const API_BASE = "https://forgot-password-backend.onrender.com";
+const API_BASE = "https://passoword-forget-fullstack.onrender.com/";
 function forgotPassword() {
-  fetch("/api/forgot-password", {
+  
+  fetch(`${API_BASE}/api/forgot-password`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: forgotEmail.value })

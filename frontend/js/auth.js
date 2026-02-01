@@ -1,4 +1,4 @@
-const API_BASE = "https://forgot-password-backend.onrender.com";
+const API_BASE = "https://passoword-forget-fullstack.onrender.com/";
 
 function hideAll() {
   registerBox.style.display = "none";
