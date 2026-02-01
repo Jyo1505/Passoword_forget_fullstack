@@ -42,33 +42,23 @@
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
 // });
-
 require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-// CORS first
+// ✅ FINAL CORS FIX
 app.use(cors({
-  origin: [
-    "https://password-forget-fullstack.vercel.app",
-    "https://passoword-forget-fullstack.onrender.com"
-  ],
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"]
+  origin: true
 }));
-
 
 app.use(express.json());
 
-// routes
 app.use("/api", authRoutes);
 
-// health check
 app.get("/", (req, res) => {
   res.send("Backend running");
 });
