@@ -1,3 +1,5 @@
+const API_BASE = "https://forgot-password-backend.onrender.com";
+
 function resetPassword() {
   const newPassword = document.getElementById("newPassword").value;
   const msg = document.getElementById("resetMsg");
@@ -13,7 +15,7 @@ function resetPassword() {
     return;
   }
 
-  fetch("/api/reset-password", {
+  fetch(`${API_BASE}/api/reset-password`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, newPassword })

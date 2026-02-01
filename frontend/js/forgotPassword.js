@@ -1,3 +1,4 @@
+const API_BASE = "https://forgot-password-backend.onrender.com";
 function forgotPassword() {
   fetch("/api/forgot-password", {
     method: "POST",

@@ -1,3 +1,5 @@
+const API_BASE = "https://forgot-password-backend.onrender.com";
+
 function hideAll() {
   registerBox.style.display = "none";
   loginBox.style.display = "none";
@@ -55,8 +57,8 @@ function register() {
 
   // ❗ NO password strength validation here ❗
   // Backend will decide
-
-  fetch("/api/register", {
+// for localhost use "/api/register"
+  fetch(`${API_BASE}/api/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password, confirmPassword })
@@ -78,7 +80,7 @@ function register() {
 
 /* LOGIN */
 function login() {
-  fetch("/api/login", {
+  fetch(`${API_BASE}/api/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -99,8 +101,8 @@ function login() {
 /* FORGOT PASSWORD */
 function forgotPassword() {
   const email = forgotEmail.value;
-
-  fetch("/api/forgot-password", {
+`${API_BASE}/api/register`
+  fetch(`${API_BASE}/api/forgot-password`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email })
