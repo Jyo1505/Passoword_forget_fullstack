@@ -63,15 +63,22 @@ function register() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password, confirmPassword })
   })
-    .then(res => res.json())
     .then(data => {
-      if (data.success) {
-        msg.innerText = "";
-        showLogin();
-        return;
-      }
-      msg.innerText = data.message;
-    });
+  if (data.success) {
+    msg.className = "success";
+    msg.innerText = "Registration successful! Please login.";
+
+    setTimeout(() => {
+      msg.innerText = "";
+      showLogin();
+    }, 1500);
+    return;
+  }
+
+  msg.className = "error";
+  msg.innerText = data.message;
+});
+
 }
 
 
@@ -88,14 +95,20 @@ function login() {
       password: loginPassword.value
     })
   })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        window.location.href = "/dashboard.html";
-      } else {
-        loginMsg.innerText = data.message;
-      }
-    });
+   .then(data => {
+  if (data.success) {
+    loginMsg.className = "success";
+    loginMsg.innerText = "Login successful! Redirecting...";
+
+    setTimeout(() => {
+      window.location.href = "/dashboard.html";
+    }, 1200);
+  } else {
+    loginMsg.className = "error";
+    loginMsg.innerText = data.message;
+  }
+});
+
 }
 
 /* FORGOT PASSWORD */
@@ -181,3 +194,4 @@ const view = params.get("view");
 if (view === "login") {
   showLogin();
 }
+
