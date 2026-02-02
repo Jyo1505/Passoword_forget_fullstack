@@ -64,21 +64,14 @@ function register() {
     body: JSON.stringify({ email, password, confirmPassword })
   })
     .then(res => res.json())
-   .then(data => {
-  if (data.success) {
-  showToast("Registration successful", "success");
-
-  setTimeout(() => {
-    showLogin();
-  }, 1500);
-  return;
-}
-
-
-  msg.className = "error";
-  msg.innerText = data.message;
-});
-
+    .then(data => {
+      if (data.success) {
+        msg.innerText = "";
+        showLogin();
+        return;
+      }
+      msg.innerText = data.message;
+    });
 }
 
 
@@ -96,15 +89,13 @@ function login() {
     })
   })
     .then(res => res.json())
-   if (data.success) {
-  showToast("Login successful", "success");
-
-  setTimeout(() => {
-    window.location.href = "/dashboard.html";
-  }, 1200);
-}
-
-
+    .then(data => {
+      if (data.success) {
+        window.location.href = "/dashboard.html";
+      } else {
+        loginMsg.innerText = data.message;
+      }
+    });
 }
 
 /* FORGOT PASSWORD */
@@ -189,21 +180,4 @@ const view = params.get("view");
 
 if (view === "login") {
   showLogin();
-}
-
-
-
-
-function showToast(message, type = "success") {
-  const toast = document.getElementById("toast");
-
-  toast.className = "toast"; // reset
-  toast.classList.add(type);
-  toast.textContent = message;
-
-  setTimeout(() => toast.classList.add("show"), 100);
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2200);
 }
