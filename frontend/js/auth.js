@@ -66,16 +66,14 @@ function register() {
     .then(res => res.json())
    .then(data => {
   if (data.success) {
-    msg.className = "success";
-    msg.innerText = "Registration successful! Please login.";
+  showToast("Registration successful", "success");
 
-    setTimeout(() => {
-      msg.innerText = "";
-      showLogin();
-    }, 1500);
+  setTimeout(() => {
+    showLogin();
+  }, 1500);
+  return;
+}
 
-    return;
-  }
 
   msg.className = "error";
   msg.innerText = data.message;
@@ -98,19 +96,14 @@ function login() {
     })
   })
     .then(res => res.json())
-   .then(data => {
-  if (data.success) {
-    loginMsg.className = "success";
-    loginMsg.innerText = "Login successful! Redirecting...";
+   if (data.success) {
+  showToast("Login successful", "success");
 
-    setTimeout(() => {
-      window.location.href = "/dashboard.html";
-    }, 1200);
-  } else {
-    loginMsg.className = "error";
-    loginMsg.innerText = data.message;
-  }
-});
+  setTimeout(() => {
+    window.location.href = "/dashboard.html";
+  }, 1200);
+}
+
 
 }
 
@@ -196,4 +189,21 @@ const view = params.get("view");
 
 if (view === "login") {
   showLogin();
+}
+
+
+
+
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+
+  toast.className = "toast"; // reset
+  toast.classList.add(type);
+  toast.textContent = message;
+
+  setTimeout(() => toast.classList.add("show"), 100);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
 }

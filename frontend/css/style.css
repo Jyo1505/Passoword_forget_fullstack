@@ -323,3 +323,46 @@ button.secondary:hover {
   text-align: center;
   margin-top: 12px;
 }
+
+
+/* =====================
+   TOAST MESSAGE
+===================== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  min-width: 220px;
+  text-align: center;
+}
+
+/* Show toast */
+.toast.show {
+  opacity: 1;
+  bottom: 50px;
+}
+
+/* Success */
+.toast.success {
+  background: #d4f8e8;
+  color: #0f5132;
+  border: 1px solid #a3e4c6;
+}
+
+/* Error */
+.toast.error {
+  background: #fde2e2;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
